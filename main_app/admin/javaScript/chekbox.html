@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+    <script>
+
+
+    $(document).ready(function () {
+        console.log("ready");
+
+        var iniciativas = [
+            {
+                "id" : "12",
+                "nombre" :  "Niños Exploradores"
+            },
+            {
+                "id" : "34",
+                "nombre" :  "Remendadores"
+            },
+            {
+                "id" : "56",
+                "nombre" :  "Arregla adornos"
+            },
+            {
+                "id" : "78",
+                "nombre" :  "Encantadores de mascotas"
+            }
+        ];
+
+        var seleccionadas = ["34", "78" ];
+
+        console.log(iniciativas);
+
+
+       cargar (iniciativas);
+       seleccionar( $(".chk-iniciativas"),  seleccionadas  )
+    });
+    
+    function cargar (array) {
+        var tmpInput = $("<div></div>");
+
+        
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];             
+            $(tmpInput).append(
+                "<input  class='chk-iniciativas' id='chk"+ array[index].id +"' type='checkbox' name='iniciativas' value='"+ array[index].id +"'>"  + array[index].nombre
+            );
+        }
+
+            $("#visor").html(tmpInput);
+
+    }
+
+
+    function seleccionar(claseInput, arregloSeleccionadas  ) {
+
+
+
+        for (let i = 0; i < claseInput.length; i++) {
+                console.log("valor",  claseInput[i].value);
+
+                for (let index = 0; index < arregloSeleccionadas.length; index++) {
+                    if (arregloSeleccionadas[index]  == claseInput[i].value ) {
+                        let tmp =  $(claseInput[i]).attr("id");
+                        document.getElementById(tmp).checked=true;                                 
+                    
+                    
+                     } 
+            
+                }                
+                        
+            }              
+
+        
+    }
+
+
+    
+    </script>
+</head>
+<body>
+    <h1>Input cheked</h1>
+    <div id="visor">
+
+    </div>
+    
+</body>
+</html>

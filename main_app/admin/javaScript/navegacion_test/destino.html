@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="./jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+    <style>
+    .ui-widget.ui-widget-content {
+        z-index: 999999
+    }
+    
+    </style>
+
+    <script	src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
+    <script  src="./jquery-ui-1.12.1.custom/jquery-ui.min.js"  ></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+ 
+    
+
+    <script >
+    
+
+
+
+
+
+
+
+        $(document).ready(function () {            
+            setup();
+        });
+
+
+
+
+        function cargarCE( mCallback ) {           
+
+            
+               
+            let formData = new FormData();
+            formData.append("consulta", "select * from centros_educativos_mep");
+
+
+                                    $.ajax({
+                            url: "../../server/consultas_generales.php",
+                            type: 'POST',
+                            data: formData,
+                            dataType:'json',
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            beforeSend: function(){
+                            console.log("En proceso");    
+                            }, success: function(response){
+                            console.log("Enviado satisfactoriamente");
+                            console.log(response);
+                            mCallback(response)     
+
+                            }, error: function(response){
+                            console.log("Error al enviar");
+                                console.log(response.error);
+                                console.log(response.msj);     
+                            }
+                        });
+            
+        }
+
+
+        function cargarAutocomplete(array) {
+            let datos = [];
+            for (let index = 0; index < array.length; index++) {
+                datos.push( "(COD: " + array[index].cod_pres + ") - "+    array[index].institucion    +  " - [ID: " + array[index].id  + "]");
+                
+            }
+
+            $( "#txtCentroEducativo" ).autocomplete({
+                source: datos			
+            });
+			
+			
+			$( "#btnObtenerCE" ).click( function () {
+			let tmp = $("#txtCentroEducativo").val();
+			
+					//console.log(tmp);
+					var res = tmp.indexOf("[");
+					//console.log(res);
+					 var stringByInput = tmp.substring(res + 4, tmp.length - 1);
+					 console.log(stringByInput);
+					 
+					
+			
+			} )
+			
+			
+        }
+
+
+
+            function setup() {
+                const currentURL =   window.location.href;
+                const url = new URL(currentURL);
+                const accion = url.searchParams.get("accion");
+                console.log("Direccion actual:",  currentURL);                
+                console.log("Valor de acción:", accion);
+
+
+                switch (accion) {
+                    case "consultar":
+                        $("#headAcion").text("Formulario en modo consulta");
+                    break;
+                    case "agregar":
+                        cargarCE( cargarAutocomplete );                        
+                        $("#headAcion").text("Formulario listo para agregar");
+                        $("#mdlAgregarCE").modal();
+                    break;
+                
+                    default:
+                        break;
+                }
+
+
+
+            }
+
+
+    
+    </script>
+</head>
+<body>
+
+    <h1>Destino</h1>
+    <hr>
+    
+    <p>           
+            <h2 id="headAcion" ></h2>
+    </p>
+
+
+
+    <!-- Button trigger modal -->
+
+      
+      <!-- Modal -->
+      <div class="modal fade" id="mdlAgregarCE" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalLabel">Agregar Centro Educativo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              
+                    <form>
+                            <div class="form-group">  
+                                    <label for="txtCentroEducativo">Digite el código o el nombre del Centro Educativo: </label>                            
+                              <input type="text" class="form-control" id="" aria-describedby="emailHelp" placeholder="Código o nombre del centro educativo">                              
+                            </div>     
+                    </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary"  id="btnObtenerCE"  >Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Prueba envio info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+
+<link rel='stylesheet' href='../../lib/fontawesome/css/all.css'>
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<link rel="stylesheet" href="../../vendor/alertify/css/alertify.min.css">
+<link rel="stylesheet" href="../../vendor/alertify/css/themes/default.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" charset="utf-8"></script>
+
+<script src="../../vendor/jquery-3.4.1/jquery.min.js"></script>
+
+<script src="../../vendor/bootstrap-4.1.3/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="../../vendor/dist/jquery.validate.js"></script>
+<script src="../../vendor/dist/additional-methods.min.js"></script>
+<script src="../../vendor/alertify/alertify.min.js"></script>
+<!-- customizer -->
+<link rel="stylesheet" href="../../css/style_forms.css">
+<script >
+$( document ).ready(function(){
+    
+        $('#btn-informacion-general').click(function(){
+            console.log("enviando...");  
+        let data = new FormData($('#form-1')[0]); 
+        
+        var url = "../server/agregar_main.php?tabla=centro_educativo";
+        $.ajax({
+            url: url,
+            data: data,
+            dataType: 'json',
+            type: 'POST',
+            contentType: false,
+            processData: false,
+
+        beforeSend: function(){
+        console.log("En proceso");   
+        }, success: function(mensaje){
+            console.log(mensaje);
+        }, error: function(mError){
+            console.log(mError);
+            
+        }
+      });
+    });
+});     
+</script>
+</head>
+<body>
+    <div id="div-form-info-general" class="card-body card-body-form">
+        <form  id="form-1" method="POST" novalidate>
+          <div class="row">
+            <div class="col-sm-5 form-group">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Código presupuestario</span>
+                  </div>  
+                  <input id="form_cod_pres" name="form_cod_pres" type="text" class="form-control form-1" aria-label="Default" required>
+                </div>
+                <div class="error"></div>
+            </div>
+            <div class=" col-sm-7 form-group">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Institución</span>
+                  </div>
+                  <input id= "form_institucion" name= "form_institucion" type="text" class="form-control form-1" required> 
+                </div>
+                <div class="error"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-text points-text">
+                  <span class="">Dirección Regional de Educación</span>
+                </div>  
+                <input id="form_direccion_regional" name="form_direccion_regional" type="text" class="form-control form-1" aria-label="Default" required>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Circuito</span>
+                </div>
+                <input id= "form_circuito" name= "form_circuito"  type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-8 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Correo</span>
+                </div>
+                <input class= "form-control form-control-sm form-1"  id="form_correo" name="form_correo" type="text" placeholder="nombreinstitucion@mep.go.cr" pattern ="((?:[a-z][a-z1-9]+))(\.)((?:[a-z][a-z]+))(\.)((?:[a-z][a-z]+))(@)(mep\.go\.cr)" required/>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Provincia</span>
+                </div>  
+                <input id="form_provincia"  name="form_provincia" type="text" class="form-control form-1" aria-label="Default" required>
+                <div class="invalid-feedback">Requerido</div>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Cantón</span>
+                </div>
+                <input id= "form_canton"  name= "form_canton" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Distrito</span>
+                </div>
+                <input id= "form_distrito" name= "form_distrito" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Poblado</span>
+                </div>  
+                <input id="form_poblado" name="form_poblado" type="text" class="form-control form-1" aria-label="Default" required>
+              </div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Coordenada X</span>
+                </div>
+                <input id= "form_coordenada_x" name = "form_coordenada_x" type="text" class="form-control form-1" required>
+              </div> 
+              <div class="error"></div> 
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Coordenada Y</span>
+                </div>
+                <input id= "form_coordenada_y" name= "form_coordenada_y" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>      
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Teléfonos</span>
+                </div>  
+                <input id="form_telefono" name="form_telefono" type="text" class="form-control form-1" aria-label="Default" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Fax</span>
+                </div>
+                <input id= "form_fax" name= "form_fax" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-sm-10 form-group"> 
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Modalidad Educativa</span>
+                </div>
+                <select id ="form_id_modalidad_educativa" class="form-control custom-select form-1" name="form_id_modalidad_educativa">
+                    <option value="1">Escuela</option>
+                    <option value="2">Colegio</option>
+                </select>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>  
+
+          <div class="row">
+            <div class="col-sm-4">
+                <div class="custom-control custom-checkbox">
+                        <select id ="form_centro_indigena" class="form-control custom-select form-1" name="form_centro_indigena">
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                <label class="custom-control-label" for="form_centro_indigena">Centro indígena</label>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="custom-control custom-checkbox">
+                    <select id ="form_bachillerato_internacional" class="form-control custom-select form-1" name="form_bachillerato_internacional">
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                        </select>
+                    <label class="custom-control-label" for="form_bachillerato_internacional">Bachillerato Internacional</label>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4">
+              <div class="custom-control custom-checkbox">
+                    <select id ="form_edificio_compartido" class="form-control custom-select form-1" name="form_edificio_compartido">
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                        </select>
+                <label class="custom-control-label" for="form_edificio_compartido">Edificio Compartido</label>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-3">
+                <div class="custom-control custom-checkbox">
+                        <div class="input-group input-group-sm">
+                        <div class="input-group-prepend">
+                                <span class="input-group-text">Internet</span>
+                              </div>
+                        <select id ="form_internet" class="form-control custom-select form-1" name="form_internet">
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Velocidad</span>
+                </div>
+                <input id= "form_velocidad"  name= "form_velocidad" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-5 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Estado de conexión</span>
+                </div>
+                  <select id ="form_estado_conexion" class="form-control custom-select form-1" id="form_estado_conexion" name="form_estado_conexion">
+                    <option value="default" selected>Seleccione...</option>
+                    <option value="1">Excelente</option>
+                    <option value="2">Muy buena</option>
+                    <option value="3">Buena</option>
+                    <option value="4">Regular</option>
+                    <option value="5">Deficiente</option>
+                  </select>
+                </div>
+                <div class="error"></div>
+            </div>
+          </div>  
+          <hr>
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Matrícula hombres</span>
+                </div>  
+                <input id="form_matricula_h" name="form_matricula_h" type="text" class="form-control form-1" aria-label="Default" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Matricula de mujeres</span>
+                </div>
+                <input id= "form_matricula_m" name= "form_matricula_m" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Cantidad de grupos</span>
+                </div>
+                <input id= "form_cantidad_grupos" name= "form_cantidad_grupos" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Cantidad de docentes</span>
+                </div>  
+                <input id="form_cantidad_docentes" name="form_cantidad_docentes" type="text" class="form-control form-1" aria-label="Default" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Total de pabellones</span>
+                </div>
+                <input id= "form_total_pabellones" name= "form_total_pabellones" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Total de aulas</span>
+                </div>
+                <input id= "form_total_aulas" name= "form_total_aulas" type="text" class="form-control form-1" required>
+              </div>
+              <div class="error"></div>
+            </div>
+          </div>      
+          <hr>
+          <div class="row">
+            <div class="col-12 form-1" id="namePDF">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="input-group mb-3">
+                 <div class="input-group-prepend">
+                    <span class="input-group-text">Archivo PDF</span>
+                 </div>
+                 <div class="custom-file">
+                    <input type="file" class="custom-file-input form-1" id="form_url_inventario" name="form_url_inventario"  accept='application/pdf'  >
+                    <label class="custom-file-label" for="form_url_inventario" id="lblInputfile"  >Seleccione un archivo</label>
+                 </div>
+              </div>
+              <input id="form_ultima_actualizacion_por" name="form_actualizado_por" type="hidden">
+            </div>
+           
+          </div>
+          <!--  es necesario o se envía completo con toda la información?
+            <div class="row">
+              <div class="col-12">
+                <button type="button" class="btn btn-info form-1 float-right" disabled  id="btnEnviarPDF"  >Enviar</button>
+              </div>
+          </div> -->
+          <hr>
+          <div class="row">
+              <input id="btn-informacion-general" type="button" value="Enviar">
+             
+        </div>
+        </form>
+      </div> 
+</body>
+</html>

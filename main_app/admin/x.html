@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+            <!-- collapseFive Aprovechamiento Tecnológico -->
+            <div class="card">
+                <div class="card-header card-header-form" id="#aprovechamiento">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link-form text-uppercase" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                      Aprovechamiento Tecnológico +
+                    </button>
+                  </h5>
+                </div>
+      
+                <div id="collapseFive" class="collapse" aria-labelledby="#aprovechamiento" data-parent="#accordion">
+      
+                  <div id="div-form-aprovechamiento-tecnologico" class="card-body card-body-form">
+      
+                    <div   class="row">
+                      <div class="col-12 mb-4 h6">
+                          <span class="badge badge-secondary p-2">Datos aprovechamiento tecnológico </span>
+                      </div>
+                    </div>
+      
+                    <!--Fila 1 Datos generales-->
+                    <div class="row">
+      
+                      <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="numCantDocnetes">Cantidad de docentes que utilizan la tecnología</label>
+                        </div>
+                        <input type="number"  min="0"  value=0 id="numCantDocnetes" class="form-control input-tec-num "  placeholder="Digite la cantidad">
+                      </div>
+      
+                      <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="selOrganizacionUsoEquipo">Organización del uso del equipo</label>
+                        </div>
+                        <select class="custom-select form-5"  name="form-5" id="selOrganizacionUsoEquipo">
+                          <option value="No existe registro" selected> No existe registro </option>
+                          <option value="1">Registro en una bitácora</option>
+                          <option value="2">El equipo está solo en un aula</option>
+                          <option value="3">Todas las aulas tienen equipo</option>
+                          <option value="4">Préstamo por medio de boleta impresa</option>
+                          <option value="5">Biblioteca digital</option>
+                          <option value="6">Otro</option>
+                        </select>
+                      </div>
+      
+                    </div>
+                    <br>
+                    <!--Fila 2 Datos generales-->
+                    <div class="row">
+      
+                      <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="selTecnologiaPAT">Incorporación de tecnología como indicador  PAT</label>
+                        </div>
+                        <select class="custom-select form-5"  name="form-5"  id="selTecnologiaPAT">
+                          <option value="2" selected> No </option>
+                          <option value="1" > Si </option>
+                        </select>
+                      </div>
+      
+                      <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="numCantEstDiscapacidad">Cantidad estudiantes con discapacidad visual</label>
+                        </div>
+                        <input type="number" class="form-control input-tec-num form-5"  name="form-5"  value=0 id="numCantEstDiscapacidad" min="0" placeholder="Digite la cantiadad">
+                      </div>
+      
+                    </div>
+                    <hr>
+      
+                    <div class="row">
+                      <div class="col-12 mb-4 h6">
+                        <span class="badge badge-secondary p-2">Usos que hace el profesorado de la tecnología: </span>
+                      </div>
+                    </div>
+      
+                    <!--Fila 1 Profesor -->
+                    <div class="row mx-4">
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profPlan">
+                        <label class="custom-control-label" for="profPlan">Planeamiento</label>
+                      </div>     
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profIndagar">
+                        <label class="custom-control-label" for="profIndagar">Indagar información en Internet</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profFotos">
+                        <label class="custom-control-label" for="profFotos">Tomar fotografías</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profProgramar">
+                        <label class="custom-control-label" for="profProgramar">Programar</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profVideo">
+                        <label class="custom-control-label" for="profVideo">Uso de cámara de video</label>
+                      </div>
+                      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profAsistencia">
+                        <label class="custom-control-label" for="profAsistencia">Control de lista y asistencia</label>
+                      </div>
+      
+                    </div>
+                    <hr>
+      
+                    <!--Fila 2 Profesor -->
+                    <div class="row mx-4">
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profProyectarVideos">
+                        <label class="custom-control-label" for="profProyectarVideos">Proyectar Videos en clase</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profHacerVideos">
+                        <label class="custom-control-label" for="profHacerVideos">Hacer y editar videos</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profGrabarVideos">
+                        <label class="custom-control-label" for="profGrabarVideos">Grabar y editar videos</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profCelular">
+                        <label class="custom-control-label" for="profCelular">Uso educativo del celular</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profPpt">
+                        <label class="custom-control-label" for="profPpt">Hacer presentacion de PorPoint</label>
+                      </div>
+                      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profMapas">
+                        <label class="custom-control-label" for="profMapas">Hacer mapas conceptuales</label>
+                      </div>
+                    
+                    </div>
+                    <hr>
+      
+                    <!--Fila 3 Profesor -->
+                    <div class="row mx-4">
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profblog">
+                        <label class="custom-control-label" for="profblog">Hacer blogs</label>        
+                      </div>
+                    
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profGeogebra">                              
+                        <label class="custom-control-label" for="profGeogebra">Utilizar Geogebra</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profRedes">
+                        <label class="custom-control-label" for="profRedes">Uso educativo de redes sociales</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profWord">
+                        <label class="custom-control-label" for="profWord">Hacer documentos de Word</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profImg">
+                        <label class="custom-control-label" for="profImg">Editar imágenes</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profWeb">
+                        <label class="custom-control-label" for="profWeb">Hacer páginas web</label>
+                      </div>
+      
+                    </div>
+                    <hr>
+                    
+                    <!--Fila 4 Profesor -->
+                    <div class="row mx-4">
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profProyector">
+                        <label class="custom-control-label" for="profProyector">Uso del proyector</label>
+                      </div>
+      
+                      <div class="col-2 text-right">
+                        Otro:
+                      </div>
+                      
+                      <div class="col-8" >
+                        <input type="text"  id="txtProfOtro" class="form-control input-tec-txt form-5" placeholder="Escriba otro uso no tipificado" >
+                      </div>
+                    
+                    </div>
+                    <hr>
+      
+                    <!--ESTUDIANTE-->
+                    <div   class="row">
+      
+                      <div class="col-12 mb-4 ml-2 h6">
+                        <span class="badge badge-secondary p-2">Usos que hace el estudiantado de la tecnología: </span>
+                      <div>
+                    </div>
+      
+                      <!--Fila 1 estudiante -->
+                    <div class="row ml-4">
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estIndagar">
+                          <label class="custom-control-label" for="estIndagar">Indagar información en Internet</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estExcel">
+                        <label class="custom-control-label" for="estExcel">Hacer Documentos en Excel</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estEditVideos">
+                        <label class="custom-control-label" for="estEditVideos">hacer y editar videos</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estAudios">
+                        <label class="custom-control-label" for="estAudios">Grabar y editar audios</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estCamaraVideo">
+                        <label class="custom-control-label" for="estCamaraVideo">Uso de cámara de video</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estVerVideos">
+                        <label class="custom-control-label" for="estVerVideos">Ver videos</label>
+                      </div>
+      
+                    </div>
+                    <hr>
+      
+                    <!--Fila 2 estudiante -->
+                    <div class="row ml-4">
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estMapas">
+                          <label class="custom-control-label" for="estMapas">Hacer mapas conceptuales</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est" id="estBlogs">
+                          <label class="custom-control-label" for="estBlogs">Hacer blogs</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estGeogebra">
+                          <label class="custom-control-label" for="estGeogebra">utilizar Geogebra</label>
+                      </div>
+      
+                      <div class="col-2" >
+                            <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="EstCelular">
+                            <label class="custom-control-label" for="EstCelular">Uso educativo del celular</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estPpt">
+                          <label class="custom-control-label" for="estPpt">Hacer presentaciones PPT</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estImagenes">
+                          <label class="custom-control-label" for="estImagenes">Editar imágenes</label>
+                      </div>
+      
+                    </div>
+                    <hr>
+      
+                    <!--Fila 3 estudiante -->
+                    <div class="row ml-4">
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estPaginasWeb">
+                          <label class="custom-control-label" for="estPaginasWeb">Hacer páginas web</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estjugar">
+                          <label class="custom-control-label" for="estjugar">Jugar</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estRedes">
+                          <label class="custom-control-label" for="estRedes">Uso educativo redes sociales</label>
+                      </div>
+      
+                      <div class="col-2" >
+                            <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="erstword">
+                            <label class="custom-control-label" for="erstword">Hacer documentos en Word</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estFotos">
+                          <label class="custom-control-label" for="estFotos">Tomar fotografías</label>
+                      </div>
+      
+                      <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estProgramar">
+                          <label class="custom-control-label" for="estProgramar">Programar</label>
+                      </div>
+      
+                    </div>
+                    <hr>
+      
+                    <!--Fila 4 estudiante -->
+                    <div class="row ml-4">
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estProyector">
+                        <label class="custom-control-label" for="estProyector">Uso del proyector</label>
+                      </div>
+      
+                      <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estRedesOtro">
+                        <label class="custom-control-label" for="estRedesOtro">Uso de redes sociales</label>
+                      </div>
+      
+                      <div class="col-2 text-right" >
+                        Otro:
+                      </div>
+      
+                      <div class="col-6" >
+                        <input type="text"  id="txtEstOtro" class="form-control input-tec-txt form-5" placeholder="Escriba otro uso no tipificado" >
+                      </div>
+      
+                    </div>
+                    <hr>
+      
+                    <!--Fin de los forumLarios de docente y estudiante-->
+                  
+                    <!--REcursos de la institución-->
+      
+                    <div   class="row">
+                      <div class="col-12 mb-4 ml-2 h6">
+                          <span class="badge badge-secondary p-2">Recursos con los que cuenta la institución </span>
+                      </div>
+                    </div>
+      
+                    <div class="row">
+      
+                      <div class="col-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Docentes de informática Educativa</span>
+                          </div>
+                          <input type="number" placeholder="Digite la cantidad"   id="numDocentesIE"   min="0"  value=0 class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                      </div>
+      
+                      <div class="col-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Laboratorio PRONIE </span>
+                          </div>
+                          <input type="number" placeholder="Digite la cantidad"    id="numLabPRONIE"  min="0"  value=0  class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                      </div>
+      
+                    </div>
+                    
+                    <div class="row">
+      
+                      <div class="col-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Ingerniero de Informática</span>
+                          </div>
+                          <input type="number" placeholder="Digite la cantidad"  id="numIngenieroInf" min="0" value=0 class="form-control input-tec-num form-5"  aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                      </div>
+      
+                      <div class="col-6">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Proyecto de tecnología </span>
+                          </div>
+                          <input type="number" placeholder="Digite la cantidad"  id="numProyTecnologia" min="0"  value=0  class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                      </div>
+      
+                    </div>
+      
+                    <div class="row">
+      
+                      <div class="col-6 input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Laboratorio de innovación</span>
+                        </div>
+                        <input type="number" placeholder="Digite la cantidad" id="numLabInnovacion" min="0" value=0 class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                      </div>
+      
+                      <div class="col-6 input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" >Laboratorio INCO</span>
+                        </div>
+                        <input type="number" placeholder="Digite la cantidad"  id="numLabINCO" min="0" value = 0 class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                      </div>
+      
+                    </div>
+                    <br>
+                    
+                    <div class="row">
+                      
+                      <div class="col-6 input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-default">Nombre de otros laboratorios</span>
+                        </div>
+                        <input type="text" placeholder="Escriba el nombre" id="txtOtrosLaboratorios" min="0"  class="form-control input-tec-txt form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                      </div>
+      
+                      <div class="col-6 input-group">
+                      </div>
+          
+                    </div>
+                    <br>
+                    <hr>
+      
+                    <div class="row">
+                      <button id="btn-aprovechamiento-tecnologico" name ="form-3"  class="btn btn-enviar form-5" alt = "Guardar" title="Guardar"><i class='fas fa-save' style='font-size:30px'></i></button>
+                    </div>
+      
+                  </div>
+                </div>  <!-- div collapseFive -->
+              </div>   <!-- div en card five -->
+              </div>
+      
+              <!-- fin del collapseFive Aprovechamiento Tecnológico -->
+</body>
+</html>

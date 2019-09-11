@@ -1,0 +1,57 @@
+.container {
+  background-color: white;
+  border-radius: .3rem;
+}
+
+.creditos-footer {
+  font-size: 1rem;
+  /* color: #1BC0BA; */
+}
+
+.btn-back {
+    font-size: 1rem;
+    background-color: #1BC0BA; 
+    color: white;
+    font-weight: bold;
+}
+
+#error {
+  color: red;
+  font-weight: bold;
+}
+
+.card-img-top {
+  opacity: 0.05;
+  filter: alpha(opacity=0.5);
+  	
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%);
+}
+
+.jumbo-header{
+  padding: 2rem 2rem!important;
+  background-color: #2f889a;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.alertify .ajs-header {
+  border-bottom: 4px double #2f889a;
+  background-color: #2f889a;
+  color: white;
+}
+
+.alertify .ajs-footer {
+  border-top: 4px double #2f889a;
+  background-color: #2f889a;
+}
+.alertify .ajs-footer .ajs-buttons .ajs-button.ajs-ok {
+
+  color: white;
+  border: 1px double white;
+  cursor: pointer;
+
+}

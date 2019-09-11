@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            cargarDatos();
+        });
+
+        function cargarDatos() {
+            fetch ( './frutas_tropicales.json' )     
+                .then( r => r.json() )
+                .then( data => {
+                    console.info( data );
+                    renderSelect(data);
+                    handlerSeleccionar();
+                    }
+                 )
+                .catch( e => console.error( 'Error de carga' ) );            
+        }
+
+
+        function renderSelect (array) {
+            let tmpSelect = $(   "<select  id='selFrutas' >   <option disabled selected  > Seleccione una opción </option>      </select> ");
+            for (let index = 0; index < array.length; index++) {                              
+                $(tmpSelect).append( "<option  value='"+ array[index].id  +"' name = '" +  array[index].nombre  + "'   >" +  array[index].nombre  + "</option>"   );                                  
+            }
+                    //inyección del objeto select en el DOM del navegador
+            $("#divContenedor").html(tmpSelect);
+            
+        }
+
+
+        function handlerSeleccionar() {
+            $("#selFrutas").change(function (e) { 
+                e.preventDefault();
+                const opt = this;
+                console.log(  opt  );
+                $("#visor").html("Usted  ha seleccionado la fruta " + $(opt).children("option:selected").attr( "name")  );
+
+
+                
+                
+            });
+            
+        }
+
+        
+
+
+    </script>
+
+</head>
+<body>
+    <h1>Select Frutas Tropicales</h1>
+    <p>Lista frutas:</p>
+    <div   id="divContenedor"></div>
+    <br>
+    <div id="visor"></div>
+    
+</body>
+</html>

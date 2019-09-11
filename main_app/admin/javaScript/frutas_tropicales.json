@@ -1,0 +1,27 @@
+[
+    {
+        "id" : "ftBan",
+        "nombre" : "Banano"
+    },
+    {
+        "id" : "ftPin",
+        "nombre" : "Piña"
+    },
+    {
+        "id" : "ftSan",
+        "nombre" : "Sandía"
+    },
+    {
+        "id" : "ftPap",
+        "nombre" : "Papaya"
+    },
+    {
+        "id" : "ftNar",
+        "nombre" : "Naranja"
+    },
+    {
+        "id" : "ftMel",
+        "nombre" : "Melocotón"
+    }
+    
+]

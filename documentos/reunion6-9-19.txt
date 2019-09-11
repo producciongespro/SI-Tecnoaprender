@@ -1,0 +1,5 @@
+ultimo acceso aparece la fecha de "hoy"
+validar nombres de centros educativos
+asesor editor que agregue y edite CE
+No carga el link del pdf 
+

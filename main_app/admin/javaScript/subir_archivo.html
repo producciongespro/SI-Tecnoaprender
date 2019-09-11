@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous">
+    </script>
+
+
+    <script>
+
+
+$(document).ready(function () {
+
+    $("#inputGroupFile01").change(function () { 
+        mostarNombreArchivo(  $("#inputGroupFile01")  );        
+    });
+
+    $("#btnEnviarPDF").click(function () { 
+        ajaxSubirPdf(  "Archivo PDF",   $("#inputGroupFile01") );        
+    });
+    
+});
+
+
+
+
+function mostarNombreArchivo( archivoPdf ) {
+    console.log(  "Archivo PDF:",  archivoPdf[0].files[0]  );
+    $("#lblInputfile").text(archivoPdf[0].files[0].name);
+
+        //Habilita el botón para enviar
+    $("#btnEnviarPDF").prop("disabled", false  );
+
+
+
+}
+
+
+
+function ajaxSubirPdf ( nombre, archivoPdf  ) {
+var formData = new FormData();
+formData.append("pdfFile", archivoPdf[0].files[0]);
+
+
+$.ajax({
+  url: 'main_app/publicar_cuento.php',
+  type: 'POST',
+  data: formData,
+  dataType:'json',
+  cache: false,
+  contentType: false,
+  processData: false,
+  beforeSend: function(){
+  console.log("En proceso");
+  
+  }, success: function(response){
+    console.log("Enviado");
+    $(".div-shadow").addClass("invisible");
+   
+   //Instrucción callbak que indica que el archivo fue enviado satisfactoriamente
+
+
+
+  }, error: function(response){
+    console.log("Error al enviar");
+      console.log(response.error);
+      console.log(response.msj);     
+  }
+});
+
+
+}
+
+
+    </script>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h1>Subir Archivos</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                    <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Archivo PDF</span>
+                            </div>
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile01"   accept='application/pdf'>
+                              <label class="custom-file-label" for="inputGroupFile01" id="lblInputfile"  >Seleccione un archivo</label>
+                            </div>
+                          </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                    <button type="button" class="btn btn-outline-secondary" disabled  id="btnEnviarPDF"  >Enviar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    
+</body>
+</html>

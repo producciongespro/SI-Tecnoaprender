@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<link rel="stylesheet" href="../../vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+
+<link rel='stylesheet' href='../../lib/fontawesome/css/all.css'>
+<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+<link rel="stylesheet" href="../../vendor/alertify/css/alertify.min.css">
+<link rel="stylesheet" href="../../vendor/alertify/css/themes/default.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" charset="utf-8"></script>
+
+<script src="../../vendor/jquery-3.4.1/jquery.min.js"></script>
+
+<script src="../../vendor/bootstrap-4.1.3/js/bootstrap.min.js" charset="utf-8"></script>
+<script src="../../vendor/dist/jquery.validate.js"></script>
+<script src="../../vendor/dist/additional-methods.min.js"></script>
+<script src="../../vendor/alertify/alertify.min.js"></script>
+
+
+
+<!-- customizer -->
+<link rel="stylesheet" href="../../css/style_forms.css">
+<!--
+<script src="../../js/formulario_ce.js"></script>
+ -->
+<!-- <script src="../../js/CentrosForm.js"></script> -->
+
+
+
+<!--Prueba de luis -->
+<script src="./javaScript/aprovechamiento_tecnologico.js"></script>
+
+
+  <title>Formulario Centros Educativos</title>
+</head>
+  <body>
+    <div class="container">
+      <div id="header-form" class="p-2">
+        <form  id="formHeader">
+            <div class="row">
+              <!-- <div class="col-sm-1">
+                  <a href="#"><i class= "fa-home-color fas fa-home fa-lg"></i></a>
+              </div> -->
+              <div class="col-sm-5">
+                    <input id="btn-actualizar" type="button" class="btn btn-block btn-info" value="Actualizar centro educativo">
+              </div>
+              <!-- <div class="col-sm-3">
+                <input id="btn-agregar" type="button" class="btn btn-info" value="Agregar centro educativo">
+              </div> -->
+              <div class="col-sm-2">
+                  <div class="custom-control custom-radio custom-header">
+                    <input type="radio" class="custom-control-input form-radio" id="cons_codigo" name="consulta_por" value="1" checked required>
+                    <label class="custom-control-label" for="cons_codigo">Código</label>
+                  </div> 
+                  <div class="custom-control custom-radio custom-header">
+                    <input type="radio" class="custom-control-input form-radio" id="cons_nombre" name="consulta_por" value="2" required>
+                    <label class="custom-control-label" for="cons_nombre">Nombre</label>
+                  </div>    
+              </div> 
+              <div class="col-sm-5">
+                   <!-- Make sure the form has the autocomplete function switched off: -->
+                 <div class="autocomplete">
+                     <input id="miConsulta" class="form-control " type="text" name="miConsulta" placeholder="Digite..." aria-label="Default" required>
+                     <!-- <div class="invalid-feedback">Requerido</div> -->
+                  </div>
+              </div> 
+          </div> <!--row -->
+          
+          <div class="row">
+            <div class="col-sm-5">
+                <input id="btn-agregar" type="button" class="btn btn-block btn-info" value="Agregar centro educativo">
+              </div>
+              <div class="col-sm-7 btn-submit-header">
+                  <button id="btnSend" type="submit" class="btn btn-block btn-info" alt = "Buscar" title="Buscar">Buscar <i class='fas fa-search'></i></button>
+                  <!-- <input id="btnSend" type="submit" class="btn btn-info" value="Buscar"><i class="fas fa-search"></i></div>     -->
+              </div>
+          </div>
+        </form>
+      </div>
+      <!-- fin header-form -->
+      <hr>
+      <div id="accordion">
+       
+
+        <!-- collapseFive Aprovechamiento Tecnológico -->
+        <div class="card">
+          <div class="card-header card-header-form" id="#aprovechamiento">
+            <h5 class="mb-0">
+                <button class="btn btn-link-form text-uppercase" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                  Aprovechamiento Tecnológico +
+                </button>
+            </h5>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="#aprovechamiento" data-parent="#accordion">
+            <div id="div-form-aprovechamiento-tecnologico" class="card-body card-body-form">
+
+
+                <div   class="row">
+                    <div class="col-12 mb-4 h6">
+                        <span class="badge badge-secondary p-2">Datos aprovechamiento tecnológico </span>
+                    </div> 
+                </div> 
+        <!--Fila 1 Datos generales-->
+                <div class="row">
+                    <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="numCantDocnetes">Cantidad de docentes que utilizan la tecnología</label>
+                        </div>
+                        <input type="number"  min="0"  value=0 id="numCantDocnetes" class="form-control input-tec-num "  placeholder="Digite la cantidad">
+                      </div>
+
+                      <div class="input-group col-6">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="selOrganizacionUsoEquipo">Organización del uso del equipo</label>
+                          </div>
+                          <select class="custom-select form-5"  name="form-5" id="selOrganizacionUsoEquipo">
+                            <option value="No existe registro" selected> No existe registro </option>
+                            <option value="1">Registro en una bitácora</option>
+                            <option value="2">El equipo está solo en un aula</option>
+                            <option value="3">Todas las aulas tienen equipo</option>
+                            <option value="4">Préstamo por medio de boleta impresa</option>
+                            <option value="5">Biblioteca digital</option>
+                            <option value="6">Otro</option>
+                          </select>
+                        </div>
+
+                </div>
+                <br>
+                <!--Fila 2 Datos generales-->
+                <div class="row">
+                    <div class="input-group col-6">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="selTecnologiaPAT">Incorporación de tecnología como indicador  PAT</label>
+                        </div>
+                        <select class="custom-select form-5"  name="form-5"  id="selTecnologiaPAT">
+                          <option value="2" selected> No </option>
+                          <option value="1" > Si </option>                       
+                        </select>
+                    </div>
+
+                      <div class="input-group col-6">
+                          <div class="input-group-prepend">
+                              <label class="input-group-text" for="numCantEstDiscapacidad">Cantidad estudiantes con discapacidad visual</label>
+                            </div>
+                          <input type="number" class="form-control input-tec-num form-5"  name="form-5"  value=0 id="numCantEstDiscapacidad" min="0" placeholder="Digite la cantiadad">                                                    
+                      </div>
+
+                 
+
+                </div>
+                <hr>
+
+              
+              <div   class="row">
+                <div class="col-12 mb-4 h6">
+                    <span class="badge badge-secondary p-2">Usos que hace el profesorado de la tecnología: </span>
+                </div> 
+              </div> 
+
+	<button id="btnLimpiar1" class="btn btn-danger" > LIMPIAR </button>
+
+              <!--Fila 1 Profesor -->                    
+              <div class="row mx-4">
+                  <div class="col-2" >
+                      <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profPlan">
+                      <label class="custom-control-label" for="profPlan">Planeamiento</label>
+                    </div>
+
+                    <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profIndagar">
+                        <label class="custom-control-label" for="profIndagar">Indagar información en Internet</label>
+                    </div>
+
+                    <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profFotos">
+                        <label class="custom-control-label" for="profFotos">Tomar fotografías</label>
+                    </div>
+
+                    <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profProgramar">
+                          <label class="custom-control-label" for="profProgramar">Programar</label>
+                    </div>
+
+                    <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profVideo">
+                        <label class="custom-control-label" for="profVideo">Uso de cámara de video</label>
+                    </div>
+
+                    <div class="col-2" >
+                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profAsistencia">
+                        <label class="custom-control-label" for="profAsistencia">Control de lista y asistencia</label>
+                    </div>                                               
+              </div> 
+              <hr>
+                                  <!--Fila 2 Profesor -->  
+                                  <div class="row mx-4">
+                                      <div class="col-2" >
+                                        <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profProyectarVideos">
+                                        <label class="custom-control-label" for="profProyectarVideos">Proyectar Videos en clase</label>
+                                      </div>
+            
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profHacerVideos">
+                                          <label class="custom-control-label" for="profHacerVideos">Hacer y editar videos</label>
+                                      </div>
+            
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profGrabarVideos">
+                                          <label class="custom-control-label" for="profGrabarVideos">Grabar y editar videos</label>
+                                      </div>
+            
+                                      <div class="col-2" >
+                                            <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profCelular">
+                                            <label class="custom-control-label" for="profCelular">Uso educativo del celular</label>
+                                      </div>
+            
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profPpt">
+                                          <label class="custom-control-label" for="profPpt">Hacer presentacion de PorPoint</label>
+                                      </div>
+            
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profMapas">
+                                          <label class="custom-control-label" for="profMapas">Hacer mapas conceptuales</label>
+                                      </div>
+            
+                                </div>
+                                <hr>
+
+                                                      <!--Fila 3 Profesor -->  
+                      <div class="row mx-4">
+                          <div class="col-2" >
+                            <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profblog">
+                            <label class="custom-control-label" for="profblog">Hacer blogs</label>
+                          </div>
+
+                          <div class="col-2" >
+                              <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profGeogebra">
+                              <label class="custom-control-label" for="profGeogebra">Utilizar Geogebra</label>
+                          </div>
+
+                          <div class="col-2" >
+                              <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profRedes">
+                              <label class="custom-control-label" for="profRedes">Uso educativo de redes sociales</label>
+                          </div>
+
+                          <div class="col-2" >
+                                <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profWord">
+                                <label class="custom-control-label" for="profWord">Hacer documentos de Word</label>
+                          </div>
+
+                          <div class="col-2" >
+                              <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profImg">
+                              <label class="custom-control-label" for="profImg">Editar imágenes</label>
+                          </div>
+
+                          <div class="col-2" >
+                              <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profWeb">
+                              <label class="custom-control-label" for="profWeb">Hacer páginas web</label>
+                          </div>
+
+                    </div>
+                    <hr>
+
+                    <!--Fila 4 Profesor -->  
+                    <div class="row mx-4">
+                        <div class="col-2" >
+                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profProyector">
+                          <label class="custom-control-label" for="profProyector">Uso del proyector</label>
+                        </div>
+
+                        <div class="col-2 text-right">
+                          Otro:
+                        </div>
+
+                        <div class="col-8" >
+                           <input type="text"  id="txtProfOtro" class="form-control input-tec-txt form-5" placeholder="Escriba otro uso no tipificado" >                            
+                        </div>               
+
+                  </div>
+                  <hr>
+                  <!--ESTUDIANTE-->
+                
+                  <div   class="row">
+                      <div class="col-12 mb-4 ml-2 h6">
+                          <span class="badge badge-secondary p-2">Usos que hace el estudiantado de la tecnología: </span>
+                      </div>
+                </div>
+
+
+                                  <!--Fila 1 estudiante -->  
+                                  <div class="row ml-4">
+
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estIndagar">
+                                          <label class="custom-control-label" for="estIndagar">Indagar información en Internet</label>
+                                      </div>
+                
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estExcel">
+                                          <label class="custom-control-label" for="estExcel">Hacer Documentos en Excel</label>
+                                      </div>
+                
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estEditVideos">
+                                          <label class="custom-control-label" for="estEditVideos">hacer y editar videos</label>
+                                      </div>
+                
+                                      <div class="col-2" >
+                                            <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estAudios">
+                                            <label class="custom-control-label" for="estAudios">Grabar y editar audios</label>
+                                      </div>
+                
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estCamaraVideo">
+                                          <label class="custom-control-label" for="estCamaraVideo">Uso de cámara de video</label>
+                                      </div>
+                
+                                      <div class="col-2" >
+                                          <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estVerVideos">
+                                          <label class="custom-control-label" for="estVerVideos">Ver videos</label>
+                                      </div>                                               
+                                </div> 
+                                <hr>
+                
+
+                                <!--Fila 2 estudiante -->  
+                            <div class="row ml-4">
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estMapas">
+                                    <label class="custom-control-label" for="estMapas">Hacer mapas conceptuales</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est" id="estBlogs">
+                                    <label class="custom-control-label" for="estBlogs">Hacer blogs</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estGeogebra">
+                                    <label class="custom-control-label" for="estGeogebra">utilizar Geogebra</label>
+                                </div>
+
+                                <div class="col-2" >
+                                      <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="EstCelular">
+                                      <label class="custom-control-label" for="EstCelular">Uso educativo del celular</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estPpt">
+                                    <label class="custom-control-label" for="estPpt">Hacer presentaciones PPT</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estImagenes">
+                                    <label class="custom-control-label" for="estImagenes">Editar imágenes</label>
+                                </div>                                               
+                            </div> 
+
+                            <hr> 
+
+                             <!--Fila 3 estudiante -->  
+                             <div class="row ml-4">
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estPaginasWeb">
+                                    <label class="custom-control-label" for="estPaginasWeb">Hacer páginas web</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estjugar">
+                                    <label class="custom-control-label" for="estjugar">Jugar</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estRedes">
+                                    <label class="custom-control-label" for="estRedes">Uso educativo redes sociales</label>
+                                </div>
+
+                                <div class="col-2" >
+                                      <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="erstword">
+                                      <label class="custom-control-label" for="erstword">Hacer documentos en Word</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estFotos">
+                                    <label class="custom-control-label" for="estFotos">Tomar fotografías</label>
+                                </div>
+
+                                <div class="col-2" >
+                                    <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estProgramar">
+                                    <label class="custom-control-label" for="estProgramar">Programar</label>
+                                </div>                                               
+                            </div> 
+                                <hr>
+
+
+                           <!--Fila 4 estudiante -->  
+                           <div class="row ml-4">
+
+                              <div class="col-2" >
+                                  <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estProyector">
+                                  <label class="custom-control-label" for="estProyector">Uso del proyector</label>
+                              </div>
+
+                              <div class="col-2" >
+                                  <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estRedesOtro">
+                                  <label class="custom-control-label" for="estRedesOtro">Uso de redes sociales</label>
+                              </div>
+
+                              <div class="col-2 text-right" >
+                                 Otro: 
+                              </div>
+
+                              <div class="col-6" >
+                                  <input type="text"  id="txtEstOtro" class="form-control input-tec-txt form-5" placeholder="Escriba otro uso no tipificado" >                            
+                              </div>
+
+                                                                   
+                          </div> 
+                          <hr>
+
+  <!--Fin de los forumalrios de docente y estudiante-->
+
+                   
+
+                                  <!--REcursos de la institución-->
+
+                                  <div   class="row">
+                                      <div class="col-12 mb-4 ml-2 h6">
+                                          <span class="badge badge-secondary p-2">Recursos con los que cuenta la institución </span>
+                                      </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-6">
+                                      <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Docentes de informática Educativa</span>
+                                          </div>
+                                          <input type="number" placeholder="Digite la cantidad"   id="numDocentesIE"   min="0"  value=0 class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                  </div>
+
+                                  <div class="col-6">
+                                      <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroup-sizing-default">Laboratorio PRONIE </span>
+                                          </div>
+                                          <input type="number" placeholder="Digite la cantidad"    id="numLabPRONIE"  min="0"  value=0  class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                        </div>
+                                  </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-default">Ingerniero de Informática</span>
+                                            </div>
+                                            <input type="number" placeholder="Digite la cantidad"  id="numIngenieroInf" min="0" value=0 class="form-control input-tec-num form-5"  aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                          </div>
+                                    </div>
+  
+                                    <div class="col-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="inputGroup-sizing-default">Proyecto de tecnología </span>
+                                            </div>
+                                            <input type="number" placeholder="Digite la cantidad"  id="numProyTecnologia" min="0"  value=0  class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                          </div>
+                                    </div>
+                                  </div>
+
+                                  
+
+                       
+
+                                    <div class="row">
+                                      <div class="col-6 input-group">                                          
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Laboratorio de innovación</span>
+                                              </div>
+                                              <input type="number" placeholder="Digite la cantidad" id="numLabInnovacion" min="0" value=0 class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">                                        
+                                      </div>
+    
+                                      <div class="col-6 input-group">
+                                          <div class="input-group-prepend">
+                                          <span class="input-group-text" >Laboratorio INCO</span>
+                                        </div>
+                                        <input type="number" placeholder="Digite la cantidad"  id="numLabINCO" min="0" value = 0 class="form-control input-tec-num form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">                                        
+
+                                      </div>
+                                      
+                                      
+                                    </div>
+
+                                          <br>
+
+
+                                    <div class="row">
+                                      <div class="col-6 input-group">                                          
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Nombre de otros laboratorios</span>
+                                              </div>
+                                              <input type="text" placeholder="Escriba el nombre" id="txtOtrosLaboratorios" min="0"  class="form-control input-tec-txt form-5" aria-label="Default" aria-describedby="inputGroup-sizing-default">                                        
+                                      </div>
+    
+                                      <div class="col-6 input-group">
+                                        
+
+                                      </div>
+                                      
+                                      
+                                    </div>
+                                        <br>
+
+
+                         
+                                  <hr>
+                                
+
+
+
+
+
+
+                          <div class="row">
+                              <button id="btn-aprovechamiento-tecnologico" name ="form-3"  class="btn btn-enviar form-5" alt = "Guardar" title="Guardar"><i class='fas fa-save' style='font-size:30px'></i></button>
+                          </div>
+                         
+            
+          </div>
+        </div>
+        <!-- fin del collapseFive Aprovechamiento Tecnológico -->
+
+
+
+
+
+        <!-- collapseSix  Infraestructura y seguridad -->
+        <div class="card">
+          <div class="card-header card-header-form" id="#infraestructura">
+            <h5 class="mb-0">
+                <button class="btn btn-link-form text-uppercase" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                  Uso de Tecnología por iniciativa +
+                </button>
+            </h5>
+          </div>
+          <div id="collapseSix" class="collapse" aria-labelledby="#infraestructura" data-parent="#accordion">
+               <div class="row" >
+                 <div class="col-12">
+
+
+           <br>        
+
+
+
+<div class="container">
+
+
+    <div   class="row">
+        <div class="col-6">
+  
+            <span class="badge badge-secondary p-2">Materias o servicios que más emplean tecnología y frecuencia de uso  </span>
+        </div>
+        <div class="col-6">
+          <select class="custom-select form-6" id="selProyectosCE">
+            <option value=0 selected > Seleccione el proyecto </option>
+           
+
+          </select>
+        </div>
+  </div>
+  <br>
+
+
+  
+
+                   <!--Fila 1-->
+                   <div class="row">                        
+                        
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matEstudiosSociales">Estudios Sociales</label>
+                              </div>
+                              <select class="custom-select form-6" id="matEstudiosSociales">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matFisica">Física</label>
+                              </div>
+                              <select class="custom-select form-6" id="matFisica">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+
+
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matArtesInd">Artes Industriales</label>
+                              </div>
+                              <select class="custom-select form-6" id="matArtesInd">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+                  </div>
+
+                       <!--Fila 2-->
+                       <div class="row">                        
+                      
+                          <div class="col-4">
+  
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text" for="matMate">Matemática</label>
+                                  </div>
+                                  <select class="custom-select form-6" id="matMate">
+                                    <option value="No se utiliza" selected> No se utiliza </option>
+                                    <option value="Una vez por semana">Una vez por semana</option>
+                                    <option value="Dos veces por semana">Dos veces por semana</option>
+                                    <option value="Tres veces por semana">Tres veces por semana</option>
+                                    <option value="Diariamente">Diariamente</option>
+                                  </select>
+                                </div>
+                        
+                        
+                          </div>
+  
+                          <div class="col-4">
+  
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text" for="matQuimica">Química</label>
+                                  </div>
+                                  <select class="custom-select form-6" id="matQuimica">
+                                    <option value="No se utiliza" selected> No se utiliza </option>
+                                    <option value="Una vez por semana">Una vez por semana</option>
+                                    <option value="Dos veces por semana">Dos veces por semana</option>
+                                    <option value="Tres veces por semana">Tres veces por semana</option>
+                                    <option value="Diariamente">Diariamente</option>
+                                  </select>
+                                </div>
+                        
+                        
+                          </div>
+  
+  
+                          <div class="col-4">
+  
+                              <div class="input-group mb-3">
+                                  <div class="input-group-prepend">
+                                    <label class="input-group-text" for="matHogar">Educación para el Hogar</label>
+                                  </div>
+                                  <select class="custom-select form-6" id="matHogar">
+                                    <option value="No se utiliza" selected> No se utiliza </option>
+                                    <option value="Una vez por semana">Una vez por semana</option>
+                                    <option value="Dos veces por semana">Dos veces por semana</option>
+                                    <option value="Tres veces por semana">Tres veces por semana</option>
+                                    <option value="Diariamente">Diariamente</option>
+                                  </select>
+                                </div>
+                        
+                        
+                          </div>
+                      </div>
+
+
+                           <!--Fila 3-->
+                  <div class="row">                        
+                      
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matCiencias">Ciencias</label>
+                              </div>
+                              <select class="custom-select form-6" id="matCiencias">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matEsp">Español</label>
+                              </div>
+                              <select class="custom-select form-6" id="matEsp">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+
+
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matCivica">Cívica </label>
+                              </div>
+                              <select class="custom-select form-6" id="matCivica">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+                  </div>
+
+                                 <!--Fila 4-->
+                                 <div class="row">                        
+                      
+                                    <div class="col-4">
+            
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <label class="input-group-text" for="matBiologia">Biología</label>
+                                            </div>
+                                            <select class="custom-select form-6" id="matBiologia">
+                                              <option value="No se utiliza" selected> No se utiliza </option>
+                                              <option value="Una vez por semana">Una vez por semana</option>
+                                              <option value="Dos veces por semana">Dos veces por semana</option>
+                                              <option value="Tres veces por semana">Tres veces por semana</option>
+                                              <option value="Diariamente">Diariamente</option>
+                                            </select>
+                                          </div>
+                                  
+                                  
+                                    </div>
+            
+                                    <div class="col-4">
+            
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <label class="input-group-text" for="matBiblio">Biblioteca</label>
+                                            </div>
+                                            <select class="custom-select form-6" id="matBiblio">
+                                              <option value="No se utiliza" selected> No se utiliza </option>
+                                              <option value="Una vez por semana">Una vez por semana</option>
+                                              <option value="Dos veces por semana">Dos veces por semana</option>
+                                              <option value="Tres veces por semana">Tres veces por semana</option>
+                                              <option value="Diariamente">Diariamente</option>
+                                            </select>
+                                          </div>
+                                  
+                                  
+                                    </div>
+            
+            
+                                    <div class="col-4">
+            
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <label class="input-group-text" for="matMusica">Música </label>
+                                            </div>
+                                            <select class="custom-select form-6" id="matMusica">
+                                              <option value="No se utiliza" selected> No se utiliza </option>
+                                              <option value="Una vez por semana">Una vez por semana</option>
+                                              <option value="Dos veces por semana">Dos veces por semana</option>
+                                              <option value="Tres veces por semana">Tres veces por semana</option>
+                                              <option value="Diariamente">Diariamente</option>
+                                            </select>
+                                          </div>
+                                  
+                                  
+                                    </div>
+                                </div>
+
+                                               <!--Fila 5-->
+                  <div class="row">                        
+                      
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matReligion">Religión</label>
+                              </div>
+                              <select class="custom-select form-6" id="matReligion">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matVocacional">Plan Vocacional</label>
+                              </div>
+                              <select class="custom-select form-6" id="matVocacional">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+
+
+                      <div class="col-4">
+
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                <label class="input-group-text" for="matCindea">CINDEA e IPEC </label>
+                              </div>
+                              <select class="custom-select form-6" id="matCindea">
+                                <option value="No se utiliza" selected> No se utiliza </option>
+                                <option value="Una vez por semana">Una vez por semana</option>
+                                <option value="Dos veces por semana">Dos veces por semana</option>
+                                <option value="Tres veces por semana">Tres veces por semana</option>
+                                <option value="Diariamente">Diariamente</option>
+                              </select>
+                            </div>
+                    
+                    
+                      </div>
+                  </div>
+
+                                 <!--Fila 6-->
+                                 <div class="row">                        
+                      
+                                    <div class="col-4">
+            
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <label class="input-group-text" for="matArtesPlast">Artes Plásticas</label>
+                                            </div>
+                                            <select class="custom-select form-6" id="matArtesPlast">
+                                              <option value="No se utiliza" selected> No se utiliza </option>
+                                              <option value="Una vez por semana">Una vez por semana</option>
+                                              <option value="Dos veces por semana">Dos veces por semana</option>
+                                              <option value="Tres veces por semana">Tres veces por semana</option>
+                                              <option value="Diariamente">Diariamente</option>
+                                            </select>
+                                          </div>
+                                  
+                                  
+                                    </div>
+            
+                                    <div class="col-4">
+            
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <label class="input-group-text" for="matBibliocra">BiblioCRA</label>
+                                            </div>
+                                            <select class="custom-select form-6" id="matBibliocra">
+                                              <option value="No se utiliza" selected> No se utiliza </option>
+                                              <option value="Una vez por semana">Una vez por semana</option>
+                                              <option value="Dos veces por semana">Dos veces por semana</option>
+                                              <option value="Tres veces por semana">Tres veces por semana</option>
+                                              <option value="Diariamente">Diariamente</option>
+                                            </select>
+                                          </div>
+                                  
+                                  
+                                    </div>
+            
+            
+                                    <div class="col-4">
+            
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <label class="input-group-text" for="matCimatBiblioDigitalvica">Biblioteca Digital </label>
+                                            </div>
+                                            <select class="custom-select form-6" id="matBiblioDigital">
+                                              <option value="No se utiliza" selected> No se utiliza </option>
+                                              <option value="Una vez por semana">Una vez por semana</option>
+                                              <option value="Dos veces por semana">Dos veces por semana</option>
+                                              <option value="Tres veces por semana">Tres veces por semana</option>
+                                              <option value="Diariamente">Diariamente</option>
+                                            </select>
+                                          </div>
+                                  
+                                  
+                                    </div>
+                                </div>
+                              
+                                    <br>
+                               
+                                <div class="row">
+
+                                  
+
+                                  <div class="col-12">
+                                      <div class="form-group">
+                                          <label for="txaDetalleProyecto "> Descripción detallada del proyecto </label>
+                                          <textarea class="form-control input-tec-txt form-6" id="txaDetalleProyecto" rows="3"></textarea>
+                                        </div>
+                                  </div>
+
+                                </div>
+                                <br>
+
+
+                                  <div class="row">
+                                      <div class="col-12">
+                                        <button  id="btn-usoTecPorProyecto"  class="btn btn-enviar form-6" alt = "Guardar" title="Guardar">
+                                            <i class='fas fa-save' style='font-size:30px'></i>
+                                        </button>                    
+                                      </div>
+                                    </div>
+                                    <br>
+
+
+</div>
+
+
+                  
+                 
+                
+          
+                
+
+         
+          </div>
+        </div>
+        <!-- fin del collapseSix Infraestructura y seguridad -->
+
+    
+       
+      </div>    <!-- fin del acordion-->
+    <br>
+    </div>
+  </body>
+</html>
