@@ -2007,7 +2007,7 @@
                   <div class="col-2" >
                           <div class="custom-control custom-checkbox form-5">
                               <input type="checkbox" class="custom-control-input uso-tec-est form-5" id="estIndagar">
-                              <label class="custom-control-label" for="estIndagar">Uso del proyector</label>
+                              <label class="custom-control-label" for="estIndagar">Indagar infotrmación en internet</label>
                            </div>                    
                   </div>
 
