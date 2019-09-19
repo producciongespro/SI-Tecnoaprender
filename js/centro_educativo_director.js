@@ -1,6 +1,6 @@
 
 "use strict";
-var consultaCentroEducativo = "http://localhost/SI-Tecnoaprender/main_app/admin/formulario.php?accion=consultar&nombre=";
+var consultaCentroEducativo = "./formulario.php?accion=consultar&nombre=";
 //objeto centro educativo cuando carga el ajax
 var item; 
   
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
 function cargarApp(){      
   
-  const url = "http://localhost/SI-Tecnoaprender/main_app/server/obtener_centro.php?id="+ idCE  +"&tabla=centro_educativo";   
+  const url = "../server/obtener_centro.php?id="+ idCE  +"&tabla=centro_educativo";   
    fetch( url)
       .then(function(response) {
           return response.json();
