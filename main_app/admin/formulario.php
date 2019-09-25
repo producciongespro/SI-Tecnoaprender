@@ -1802,7 +1802,7 @@
 
                   <div class="custom-control custom-checkbox form-5">
                           <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profIndagar">
-                          <label class="custom-control-label" for="profIndagar">Indagar información en Interne</label>
+                          <label class="custom-control-label" for="profIndagar">Indagar información en Internet</label>
                       </div>
 
                     
@@ -1875,8 +1875,8 @@
                   <div class="col-2 " >
 
                   <div class="custom-control custom-checkbox form-5">
-                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profGrabarVideos">
-                          <label class="custom-control-label" for="profGrabarVideos">Grabar y editar videos</label>
+                          <input type="checkbox" class="custom-control-input uso-tec-prof form-5" id="profAudios">
+                          <label class="custom-control-label" for="profAudios">Grabar y editar audios</label>
                   </div> 
                     
                    

@@ -6,30 +6,32 @@ var accion;
 
 
 function setupForm5y6 (accion,itemID) {
-       
-        console.log("Accion en setup5y6", accion);
-        
-       // Handler onload
+	// Handler onload
        idCentroEducativo = itemID;
-       console.log("idCentroEducativo", idCentroEducativo);
+	   activaSelect(accion);          	    
+        //console.log("---------------Accion en setup5y6", accion, "--------------");                      
+       //console.log("idCentroEducativo", idCentroEducativo);	
 
-       activaSelect(accion);          
-        
-
-       $("#btn-aprovechamiento-tecnologico").click(function (e) { 
+       
+	   //Se elimina manjeador de eventos residuales en memoria
+	   $("#btn-aprovechamiento-tecnologico").off("click");
+       $("#btn-aprovechamiento-tecnologico").click(function (e) {			
            e.preventDefault();   
-           llenarEspacios();        
-           guardarProfesor();
-           guardarEstudiante();         
-           enviarFormDataAjax( empaquetarDatosAprovechamientoTec(), 
+			llenarEspacios();			
+            guardarProfesor();           
+		   guardarEstudiante();         
+          
+		   enviarFormDataAjax( empaquetarDatosAprovechamientoTec(), 
                         function () { 
                             console.log("ACCION", accion);  
                             deshabilitaForm('form-5');
                         },  
-                        "../server/agregar_main.php?tabla=uso_equipo&id="+idCentroEducativo );           
+                        "../server/agregar_main.php?tabla=uso_equipo&id="+idCentroEducativo );  
+						
        });
    
-   
+	//Se eliminana eventos residuales
+	$("#btn-usoTecPorProyecto").off("click");
        $("#btn-usoTecPorProyecto").click(function (e) { 
            e.preventDefault();
            $(this).prop("disabled", true);           
@@ -65,8 +67,12 @@ function habilitaritarInput(clase) {
     $("."+clase).removeClass("disabled");       
 }
 
-function guardarProfesor () {   
-    const chkProfesor = $(".uso-tec-prof");
+
+
+function guardarProfesor () { 
+//Se limpia el array para que no haga duplicados :	
+    usoProf = []; 
+	const chkProfesor = $(".uso-tec-prof");
     for (let index = 0; index < chkProfesor.length; index++) {
         let obj = {
             "id" : chkProfesor[index].id,
@@ -74,12 +80,13 @@ function guardarProfesor () {
         };
         usoProf.push(obj);        
     };
-    console.log("datos profesor guardados ");
-    console.log(usoProf);    
+    console.log("datos profesor guardados", usoProf);   
        
 }
 
-function guardarEstudiante () {   
+function guardarEstudiante () {
+	//Se limpia el array para que no haga duplicados :
+	usoEst  = [];
     const chkEstudiante = $(".uso-tec-est");
     for (let index = 0; index < chkEstudiante.length; index++) {
         let obj = {
@@ -226,7 +233,7 @@ dataset.reverse();
     
    
      const limite = dataset.length;
-
+	$("#selProyectosCE").off("change");
     $("#selProyectosCE").change(function (e) { 
         e.preventDefault();
         const opcion = e.target.value;
@@ -358,7 +365,7 @@ function empaquetarDatosUsoTecProyecto () {
 }
 
 function empaquetarConsulta(c) { 
-    // c recibe como parámetro la consulta a empaquetar para luego mandarla por Ajx    
+    // c recibe como parámetro la consulta a empaquetar para luego mandarla por Ajax    
     
         var formData = new FormData();               
         formData.append("consulta", c );
