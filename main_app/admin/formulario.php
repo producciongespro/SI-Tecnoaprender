@@ -730,7 +730,7 @@
 
                       <div class="col-sm-3" >
                         <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input form-2" id="1" name="2">
+                          <input type="checkbox" class="custom-control-input form-2" id="1" name="1">
                           <label class="custom-control-label" for="1">Tecnoaprender en Preescolar</label>
                         </div>
                       </div>
