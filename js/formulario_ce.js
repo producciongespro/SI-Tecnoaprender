@@ -310,6 +310,13 @@ function consultaCentro(accion) {
       cambia_estado_forms(true);
 
       $( "#btn-actualizar" ).click( function () {
+
+        /*
+        Deshabilita el botón buscar para obligar al usuario a cargar nuevamente el form
+        con el fin de limpiar datos de los inputs
+        */
+       $("#btnSend").prop("disabled", true);
+
         //Bandera modo actualizacion
         modoActualizacion=true;
         //redundancia para habilitar forms 5 y 6
@@ -1096,7 +1103,7 @@ function renderizarFormDatosGenerales(data, accion) {
   
   //tabla provisional --- la consulta debe hacerse en Usuarios
     // let consulta = "SELECT  id,nombre FROM `usuarios` WHERE `id_tipo`='asesor enlace'  ORDER BY nombre"; 
-    let consulta = "SELECT * FROM `usuarios` WHERE `id_tipo`='1' OR `id_tipo`='6' OR `id_tipo`='7' ORDER BY nombre";
+    let consulta = "SELECT * FROM `usuarios` WHERE `id_tipo`='1' OR `id_tipo`='6' OR `id_tipo`='7'  OR `id_tipo`='9' ORDER BY nombre";
     enviarFormDataAjax2( empaquetarConsulta(consulta), llenarSelectAsesores,  "../server/consultas_generales.php", asesor,"asesores select" );
     
     consulta = 'SELECT * FROM `modalidad_educativa` ORDER BY id';
