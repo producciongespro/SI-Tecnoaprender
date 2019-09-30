@@ -302,23 +302,33 @@ function dibujarTabla (array, visor) {
         }    
     });
 
-    $("#btnEnviarValidacion").click(function (e) { 
-      e.preventDefault();
-      alertify.confirm("Tecnoaprender", "¿Desea realmente enviar la validación? Una vez enviada no podrá ser cambiada.",
-  function(){    
-      //Ajax envio
-      envioAjax( tmpEstado );
-     //Cierra el modal
-     $("#mdlValidar").modal('hide');
+    $("#btnEnviarValidacion").click(function (e) 
+    { 
+      e.preventDefault(); 
+      tmp= typeof tmpEstado; //Capturo el valor de tmpEstado      
+      if (tmp != "undefined")  //Valoro si el contenido es indefinido, si no se cumple la condición, que siga valorando el resto
+      {
+        console.log("Estado:",tmp); //Bandera para ver el estado de la variable
 
-  },
-  function(){
-    console.log("Cancelar");
-    
-  });
-
-
-    
+        alertify.confirm("Tecno@prender", "¿Desea realmente enviar la validación? Una vez enviada no podrá ser cambiada.",
+          function()  
+          {  
+            //Ajax envio
+            envioAjax( tmpEstado );
+            //Cierra el modal
+            $("#mdlValidar").modal('hide');
+          },
+          
+          function()
+          {
+            console.log("Cancelar");
+          });    
+        }
+        else //Si se cumple la condición que alerte al usuario
+        {
+          console.log("Estado:",tmp);//Bandera para ver el estado de la variable
+          alertify.alert("Tecno@prender","Por favor seleccione si esta conforme o disconforme, con el informe.");
+        }
     });
     
   }
