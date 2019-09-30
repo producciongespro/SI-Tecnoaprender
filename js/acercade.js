@@ -1,3 +1,4 @@
+//Prueba para incluir en nueva rama de prueba *prueba1
 jQuery(document).ready(function($){
   let modalAcercaDe = '<div class="modal-dialog" role="document">';
       modalAcercaDe += '<div class="modal-content">';
