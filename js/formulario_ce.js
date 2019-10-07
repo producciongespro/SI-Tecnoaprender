@@ -664,7 +664,7 @@ function validacionyEnvioForms4(accion) {
 function actualizaForm4(accionF,tipoEquipo) {  
   let idForm = "#form-4-"+tipoEquipo,
       idBtn =  "#btn-equipamiento-"+tipoEquipo;
-
+      var datosForm, url, resultado;
   var form = $(idForm);
   
   // var form = $( "#form-4-fonatel" );
@@ -684,25 +684,53 @@ function actualizaForm4(accionF,tipoEquipo) {
     var tipoEquipamiento = idBtn.slice(18),
      nombreTabla = "equipamiento_"+tipoEquipamiento,
      nombreClase = '.form-4-'+tipoEquipamiento;
+    //  console.log("tabla"+nombreTabla);
+     
+    console.log("id del centro"+id_del_centro_educativo);
     
     if(form.valid()=== true){ 
 
       if (id_del_centro_educativo != 0) {  
-        let data = new FormData($(idForm)[0]); 
-        
-      //   for (var pair of data.entries()) {
-      //     console.log(pair[0]+ ', ' + pair[1]); 
+                             
+        // datosForm = new FormData($('#form-4-fonatel')[0]);
+        datosForm = new FormData($(idForm)[0]); 
+      //    console.log("nombre del form"+($(idForm)[0]));
+         
+      //    console.log(datosForm);
+      //   for (var pair of datosForm.entries()) {
+      //     console.log(pair[0]+ ',  ' + pair[1]); 
       // }
-        var url;
-        if (accionF === 'agregar') {
-          url = "../server/agregar_main.php?tabla="+nombreTabla+"&id=" +id_del_centro_educativo + "";
-          
+
+       consulta = "SELECT * FROM `"+nombreTabla+"` WHERE `id_CE`= '"+id_del_centro_educativo+"'";
+      cargaJson( consulta, function (data){resultado = data.length; 
+        console.log("datos de equipamiento", resultado);
+        if(resultado == 0)  
+        {
+          accionF = 'agregar'
         }
-        else {
-            url = "../server/actualizar_main.php?tabla="+nombreTabla+"&id=" +id_del_centro_educativo + "";
-            // url = "../server/actualizar_main.php?tabla=equipamiento_fonatel&id=" +id_del_centro_educativo + "";
+        else
+        {
+          accionF = 'consultar'
         }
-        conectDataAjaxSimple(url, data);    
+      if (accionF === 'agregar' ) {
+        url = "../server/agregar_main.php?tabla="+nombreTabla+"&id=" +id_del_centro_educativo + "";
+        conectDataAjaxSimple(url, datosForm); 
+      //   console.log("aqui no hay registros");
+      //   for (var pair of datosForm.entries()) {
+      //     console.log("despues..."+pair[0]+ ',  ' + pair[1]); 
+      // };
+      }
+      else
+      {
+          url = "../server/actualizar_main.php?tabla="+nombreTabla+"&id=" +id_del_centro_educativo + "";
+          console.log("aqui update");
+          conectDataAjaxSimple(url, datosForm); 
+                    // url = "../server/actualizar_main.php?tabla=equipamiento_fonatel&id=" +id_del_centro_educativo + "";
+      }
+             
+      },"../server/consultas_generales.php");
+
+        
         if (accionF === 'agregar') {
           $(nombreClase).prop("disabled", true);
           $(idBtn).prop("disabled", true);  //se deshabilita por ID, porque los 4 btn's  llevan el mismo name

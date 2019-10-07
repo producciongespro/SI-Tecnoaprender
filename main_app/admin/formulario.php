@@ -1213,7 +1213,7 @@
                               <div class="input-group-prepend">
                                 <span class="input-group-text" for="fonatel_monto_inversion">Monto Inversión</span>
                               </div>
-                              <input type="text"  id="fonatel_monto_inversion" name="fonatel_monto_inversion" class="form-control form-4-fonatel" >
+                              <input type="number"  id="fonatel_monto_inversion" name="fonatel_monto_inversion" class="form-control form-4-fonatel" >
                             </div>
                           </div>
 
