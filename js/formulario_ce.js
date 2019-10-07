@@ -133,6 +133,8 @@ function checkDataForms() { //chequea si existen información sin guardar
 
 function limpiarFormularios() {
   let collectionForms = document.forms;
+  // console.log("colección de forms", collectionForms);
+  
   for (let index = 0; index < collectionForms.length; index++) {
     collectionForms[index].reset();   
     setEquipamiento(); 
@@ -182,7 +184,7 @@ function agregarCentro() {
     const element = 'form-'+ index;
     formaBotonEnviar(element, false)  
   }
-
+  $( "#btnObtenerCE" ).off("click");
   $( "#btnObtenerCE" ).click( function () {
     let tmp = $("#txtCentroEducativo").val();
     if (tmp != ""){      
@@ -191,7 +193,7 @@ function agregarCentro() {
       var matches = regExp.exec(tmp);
       if (matches == null) {
         alertify.confirm('AGREGAR CENTRO EDUCATIVO', 'Este código no existe ¿Desea agregarlo?', 
-        function(){console.log('Código nuevo / Institución nueva');
+        function(){//console.log('Código nuevo / Institución nueva');
                     preparacionAgregar(accion, false);},
         function(){ }).set({
                 labels : {
@@ -267,7 +269,7 @@ function preparacionAgregar(accion, existe){
 //CONSULTAR 
 function consultaCentro(accion) {  
   $(".row-search").show(); 
-  console.log("Tipo", tipo);
+  // console.log("Tipo", tipo);
   
   if (tipo == 2) {
     $("#btn-actualizar").hide()
@@ -287,10 +289,11 @@ function consultaCentro(accion) {
  
   autocompleteArrays(accion); 
   cambia_estado_forms(true);
-
+  $( "#btnSend" ).off("click");
   $( "#btnSend" ).click( function () {
     $('.collapse').collapse('show')
     var valorConsulta = $("#miConsulta").val();
+    $("#form-2")[0].reset();   
     limpiarFormularios();
     // if ($("#miConsulta").val() != "")
    if (valorConsulta != "")
@@ -308,14 +311,16 @@ function consultaCentro(accion) {
       cargaForm5(accion, codigoConsulta);
       cargaForm6(accion, codigoConsulta,"");
       cambia_estado_forms(true);
-
+      $( "#btn-actualizar" ).off("click");
       $( "#btn-actualizar" ).click( function () {
+        console.log("id", itemID);
+        
 
         /*
         Deshabilita el botón buscar para obligar al usuario a cargar nuevamente el form
         con el fin de limpiar datos de los inputs
         */
-       $("#btnSend").prop("disabled", true);
+      //  $("#btnSend").prop("disabled", true);
 
         //Bandera modo actualizacion
         modoActualizacion=true;
@@ -371,6 +376,7 @@ function validacionyEnvioForm1(accion) {
              }
          }
      });
+    $("#btn-informacion-general").off("click");
     $("#btn-informacion-general").click(function () {
       if(form.valid()=== true){           
         $("#btn-informacion-general").prop("disabled", true);  
@@ -514,20 +520,25 @@ function validacionyEnvioForm2(accionF) {
     // FALTA VALIDACIÓN SI SE REQUIERE
     // regla de que no esté vacío el código
   });
-  
+  $('#btn-datos-proyectos').off("click");
   $('#btn-datos-proyectos').click(function(e){
+    var searchIDs = [];
+    console.log("array searchIDs AFUERA"+searchIDs);
+            
     if(form.valid()=== true){   
 
       if (id_del_centro_educativo != 0) {
       if (accionF == 'agregar') {
             e.preventDefault();
-            var searchIDs = $("#proyectosCE input:checkbox:checked").map(function(){
+            searchIDs = $("#proyectosCE input:checkbox:checked").map(function(){
               return $(this).attr("id");
             }).get(); // <----
-            // console.log("searchIDs",searchIDs);
+            
             // var url = "../server/agregar_main.php?tabla=proyectos&id=" +id_del_centro_educativo + "";
             var url = "../server/actualizar_main.php?tabla=proyectos&id=" +id_del_centro_educativo + "";
             let datosDesde = searchIDs.length;  
+            // console.log("largo del array"+ datosDesde);
+            
             $(".div-shadow").removeClass("invisible");          
             $.ajax({
               type: "POST",
@@ -548,12 +559,14 @@ function validacionyEnvioForm2(accionF) {
             });
           }
           else {
+            searchIDs = [];
             e.preventDefault();
-            var searchIDs = $("#proyectosCE input:checkbox:checked").map(function(){
+            searchIDs = $("#proyectosCE input:checkbox:checked").map(function(){
               return $(this).attr("id");
+              
             }).get(); // <----
-            
             var url = "../server/actualizar_main.php?tabla=proyectos&id=" +id_del_centro_educativo + "";
+
             // console.log("url actualizar",url);
             let datosDesde = searchIDs.length;
             $(".div-shadow").removeClass("invisible");
@@ -561,11 +574,11 @@ function validacionyEnvioForm2(accionF) {
               type: "POST",
               url: url,
               data: {'array': JSON.stringify(searchIDs)},//capturo array     
-              success: function(data){
+              success: function(data){                
                 $(".div-shadow").addClass("invisible");
                 deshabilitaBoton('form-2');
                 $('#btn-datos-proyectos').blur();
-                // alertify.notify('La información ha sido actualizada','warning',3, null);
+                
                 cargaForm6(accionF, id_del_centro_educativo, datosDesde);
                 // console.log('actualizados');  
               },
@@ -596,6 +609,7 @@ function validacionyEnvioForm3(accionF) {       //Infraestructura
     // FALTA VALIDACIÓN SI SE REQUIERE
     // regla de que no esté vacío el código
   });
+  $('#btn-infraestructura').off("click");
   $('#btn-infraestructura').click(function(e){
     if(form.valid()=== true){   
       if (id_del_centro_educativo != 0) {  
@@ -664,6 +678,7 @@ function actualizaForm4(accionF,tipoEquipo) {
     // FALTA VALIDACIÓN SI SE REQUIERE
     // regla de que no esté vacío el código
   });
+  $(idBtn).off("click");
   $(idBtn).click(function(e){
     // valores de la tabla y clase se pierden cuando se agrega
     var tipoEquipamiento = idBtn.slice(18),
@@ -1526,7 +1541,7 @@ function cargaForm(response) {
   itemID = parseInt(texto[0]);    
   // fin obtener id
 
-  console.log("Código del nuevo Centro", itemID); 
+  // console.log("Código del nuevo Centro", itemID); 
   cambia_estado_forms(false);
   
   preparacion_de_forms('agregar');

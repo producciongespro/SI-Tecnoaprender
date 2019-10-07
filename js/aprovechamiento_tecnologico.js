@@ -23,7 +23,7 @@ function setupForm5y6 (accion,itemID) {
           
 		   enviarFormDataAjax( empaquetarDatosAprovechamientoTec(), 
                         function () { 
-                            console.log("ACCION", accion);  
+                            // console.log("ACCION", accion);  
                             deshabilitaForm('form-5');
                         },  
                         "../server/agregar_main.php?tabla=uso_equipo&id="+idCentroEducativo );  
@@ -48,7 +48,7 @@ function setupForm5y6 (accion,itemID) {
 
 function activaSelect(accion) {
     accion=accion;
-    console.log("------------------Accion en activaSelect", accion);
+    // console.log("------------------Accion en activaSelect", accion);
     $("#selProyectosCE").empty();
     consulta = "SELECT id_CE,  id_iniciativa, iniciativas.nombre FROM proyectos INNER JOIN iniciativas ON iniciativas.id=proyectos.id_iniciativa WHERE `id_CE`="+ idCentroEducativo;
     enviarFormDataAjax( empaquetarConsulta(consulta), cargarSelect,  "../server/consultas_generales.php" );   
@@ -56,13 +56,13 @@ function activaSelect(accion) {
 
 
 function deshabilitarInput(clase) {
-    console.log("DESACTIVANDO formulario", clase);    
+    // console.log("DESACTIVANDO formulario", clase);    
     $("."+ clase).prop("disabled", true);  
     $("."+clase).addClass("disabled");       
 }
 
 function habilitaritarInput(clase) {
-    console.log("ACTIVANDO formulario", clase);    
+    // console.log("ACTIVANDO formulario", clase);    
     $("."+ clase).prop("disabled", false);  
     $("."+clase).removeClass("disabled");       
 }
@@ -80,7 +80,7 @@ function guardarProfesor () {
         };
         usoProf.push(obj);        
     };
-    console.log("datos profesor guardados", usoProf);   
+    // console.log("datos profesor guardados", usoProf);   
        
 }
 
@@ -95,8 +95,8 @@ function guardarEstudiante () {
         };
         usoEst.push(obj);        
     };
-    console.log("datos estudiante guardados ");
-    console.log(usoEst);    
+    // console.log("datos estudiante guardados ");
+    // console.log(usoEst);    
        
 }
 
@@ -226,7 +226,7 @@ function renderizarFormAprovechamientoTec (dataset ) {
 function renderizarFormUsoTecnologiaProyecto(dataset) {
 
 dataset.reverse();
-   console.log("Desde proyecto render",dataset);  
+//    console.log("Desde proyecto render",dataset);  
     
     
      //Renderiza el formulario de acuerdo al valor seleccionado por el usuario:
@@ -379,7 +379,7 @@ function empaquetarConsulta(c) {
 
 function cargarSelect(stringArray) {
 let dataset = JSON.parse(stringArray);
-     console.log(dataset);      
+    //  console.log(dataset);      
      //Renderiza el formulario de acuerdo al valor seleccionado por el usuario:  
      const limite = dataset.length;
     //console.log(limite);    
