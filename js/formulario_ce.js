@@ -606,6 +606,7 @@ function validacionyEnvioForm3(accionF) {       //Infraestructura
         event.preventDefault();
   });
   form.validate({
+
     // FALTA VALIDACIÓN SI SE REQUIERE
     // regla de que no esté vacío el código
   });
@@ -613,27 +614,52 @@ function validacionyEnvioForm3(accionF) {       //Infraestructura
   $('#btn-infraestructura').click(function(e){
     if(form.valid()=== true){   
       if (id_del_centro_educativo != 0) {  
-        let data = new FormData($('#form-3')[0]); 
+        let datosForm = new FormData($('#form-3')[0]); 
         var internet=["#chkOficinas","#chkred","#chkbib","#chkinsti"];
         var names=["chkOficinas","chkred","chkbib","chkinsti"];
         var url;
         for (let index = 0; index < 4; index++) {
           var oficinas = $(internet[index]);
-          data.delete(names[index]);        
+          datosForm.delete(names[index]);        
         if (oficinas.is(":checked")){
-            data.append((names[index]), 'true');    
+          datosForm.append((names[index]), 'true');    
         }
           else {
-            data.append((names[index]), 'false'); 
+            datosForm.append((names[index]), 'false'); 
           } 
         }
+      //            console.log(datosForm);
+      //   for (var pair of datosForm.entries()) {
+      //     console.log(pair[0]+ ',  ' + pair[1]); 
+      // }
+        // INICIO codigo agregado para permitar agregar INSERT desde la opción consultar
+        consulta = "SELECT * FROM `infraestructura` WHERE `id_CE`= '"+id_del_centro_educativo+"'";
+        cargaJson( consulta, function (data){resultado = data.length; 
+          console.log("datos de INFRAESTRUCTURA", resultado);
+          if(resultado == 0)  
+          {
+            accionF = 'agregar' // NO hay registros
+          }
+          else
+          {
+            accionF = 'consultar'
+          }
+        // });
+        
+
         if (accionF == 'agregar') {
             url = "../server/agregar_main.php?tabla=infraestructura&id=" +id_del_centro_educativo + "";
         }
         else {
             url = "../server/actualizar_main.php?tabla=infraestructura&id=" +id_del_centro_educativo + "";
         }
-        conectDataAjaxSimple(url, data);    
+        conectDataAjaxSimple(url, datosForm);    
+
+      },"../server/consultas_generales.php");
+
+      //FIN DE CÓDIGO
+
+      
         if (accionF == 'agregar') {
           $(".form-3").prop("disabled", true);
           deshabilitaBoton('form-3');
